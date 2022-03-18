@@ -24,7 +24,6 @@
 @media (max-width: 500px){
   .popup__container{
     top: 123px;
-    left: 5.94%;
     min-height: 322px;
     left: calc((100% - 78.12%)/2);
     width: 78.12%;
