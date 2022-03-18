@@ -6,6 +6,6 @@
 * В дальнейшем планируется реализация технологии добавления и удаления фотографий.
 
 
-* [Ссылка на проект в GIThub](git@github.com:arkel-tatiana/mesto.git)
+* [Ссылка на проект в GIThub](https://github.com/arkel-tatiana/mesto.git)
 
 
