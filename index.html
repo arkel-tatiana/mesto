@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>mesto</title>
+  </head>
+  <body class="body">
+    <div class="page">
+      <header class="header">
+        <div class="header__logo"></div>
+        <hr class="header__line"> 
+      </header>
+  
+      <main>
+        <section class="profile">
+            <div class="profile__container">
+                <img class="profile__avatar" alt="Фото Жак-Ив Кусто" src="./images/Жак-Ив Кусто.png"/>
+                <div class="profile__info">
+                    <div class="profile__title-container">
+                      <h1 class="profile__title">Жак-Ив Кусто</h1>
+                      <button class="profile__edit-button" name="edit-button" aria-label="Редактировать профиль"></button>
+                    </div>
+                    <h2 class="profile__subtitle">Исследователь океана</h2>
+                </div>
+            </div>
+            <button class="profile__add-button" name="add-button" aria-label="Добавить фото"></button>
+        </section>
+
+        <section class="elements">
+            <div class="elements__restangle">
+                <img class="elements__image" alt="фото Карачаевск" src="./images/1-6-крачаевск.png"/>
+                <p class="elements__title">Карачаевск</p>
+                <button class="elements__like" aria-label="Поставить Лайк"></button>
+            </div>
+            <div class="elements__restangle">
+              <img class="elements__image" alt="фото гора Эльбрус" src="./images/2 - 4 - гора эльбрус.png"/>
+              <p class="elements__title">гора Эльбрус</p>
+              <button class="elements__like" aria-label="Поставить Лайк"></button>
+            </div>           
+            <div class="elements__restangle">
+              <img class="elements__image" alt="фото Домбай" src="./images/3 - 5 - донбай.png"/>
+              <p class="elements__title">Домбай</p>
+              <button class="elements__like" aria-label="Поставить Лайк"></button>
+            </div>
+            <div class="elements__restangle">
+                <img class="elements__image" alt="фото Кемерово" src="./images/кемерово1.jpg"/>
+                <p class="elements__title">Кемерово</p>
+                <button class="elements__like" aria-label="Поставить Лайк"></button>
+            </div>
+            <div class="elements__restangle">
+                <img class="elements__image" alt="фото п.Лесная поляна" src="./images/кемерово2.jpg"/>
+                <p class="elements__title">пос. Лесная поляна</p>
+                <button class="elements__like" aria-label="Поставить Лайк"></button>
+            </div>
+            <div class="elements__restangle">
+                <img class="elements__image" alt="фото Сосновый бор" src="./images/кемерово3.jpg"/>
+                <p class="elements__title">Сосновый бор</p>
+                <button class="elements__like" aria-label="Поставить Лайк"></button>
+            </div>            
+        </section>
+        <div class="popup">
+          <button class="popup__close-button" aria-label="Закрыть окно"></button>
+          <form class="popup__container">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <input class="popup__input popup__input_name_username" name="1" type="text" value>
+            <hr class="popup__line"> 
+            <input class="popup__input popup__input_name_userjob" name="2" type="text" value>
+            <hr class="popup__line">
+            <button class="popup__submit-button" type="submit">Сохранить</button>
+          </form>
+        </div>
+       </main>
+       <footer class="footer">
+        <p class="footer__copyright">&COPY; 2022 Mesto Russia</p>
+      </footer>
+    </div>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
+<!---->

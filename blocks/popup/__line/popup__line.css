@@ -1,0 +1,14 @@
+.popup__line{
+  padding: 0;
+  margin: 0;
+  width: 83.26%;
+  max-width: 358px;
+  opacity: 0.2;
+  border: 1px solid #000000;
+}
+@media (max-width: 500px){
+  .popup__line{
+    width: 84.4%;
+    max-width: 238px;
+  }
+}

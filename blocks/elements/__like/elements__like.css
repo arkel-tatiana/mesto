@@ -1,0 +1,20 @@
+.elements__like{
+  margin: 5px 30px 0 0;
+  width: 22px;
+  height: 19px;
+  grid-area: logo;
+  border: none;
+  background: none;
+  background-image: url(../../../images/сердечко2.png);
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.elements__like:hover{
+  opacity: 0.5;
+}
+@media (max-width: 500px){
+  .elements__like{
+    margin: 5px 0 0 10px;
+  }
+}

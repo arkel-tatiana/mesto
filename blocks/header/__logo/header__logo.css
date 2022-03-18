@@ -1,0 +1,17 @@
+.header__logo{
+  width: 142px;
+  height: 33px;
+  background-size: 142px 33px;
+  background-image: url(../../../images/логотип.png);
+}
+.header__logo:hover{
+  background-image: url(../../../images/логотип1.png);
+}
+@media (max-width: 400px){
+  .header__logo {
+    width: 103px;
+    height: 24.4px;
+    margin-left:27px;
+    background-size: 103px 24.4px;
+  }
+}
