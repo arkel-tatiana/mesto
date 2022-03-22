@@ -1,25 +1,10 @@
 .elements{
   margin: 46px auto 0 auto;
   max-width: 68.75%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, minmax(min-content, max-content));
-  row-gap: 20px;
-  column-gap: 17px;
-  box-sizing: border-box;
-  padding: 0;
 }  
-@media (max-width: 800px){
-  .elements{
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, minmax(min-content, max-content));
-  }
-}
 @media (max-width: 500px){
   .elements{
     margin: 32px auto 0 auto;
     max-width: 88.1%;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(6, minmax(min-content, max-content));
   }
 }
