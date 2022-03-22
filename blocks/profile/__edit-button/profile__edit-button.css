@@ -10,7 +10,7 @@
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  transition: opacity 0.5s ease-in-out
+  transition: opacity 0.5s ease-in-out;
 }
 .profile__edit-button:hover{
   opacity: 0.6;
