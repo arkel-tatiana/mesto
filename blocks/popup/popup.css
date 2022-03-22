@@ -9,6 +9,6 @@
   bottom: 0;
   display: none;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   z-index: 100;
 }

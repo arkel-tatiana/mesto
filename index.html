@@ -10,68 +10,65 @@
     <div class="page">
       <header class="header">
         <div class="header__logo"></div>
-        <hr class="header__line"> 
       </header>
   
-      <main>
+      <main class="content">
         <section class="profile">
             <div class="profile__container">
-                <img class="profile__avatar" alt="Фото Жак-Ив Кусто" src="./images/ЖакИвКусто.png"/>
+                <img class="profile__avatar" alt="Фото Жак-Ив Кусто" src="./images/жак.svg"/>
                 <div class="profile__info">
                     <div class="profile__title-container">
                       <h1 class="profile__title">Жак-Ив Кусто</h1>
-                      <button class="profile__edit-button" name="edit-button" aria-label="Редактировать профиль"></button>
+                      <button class="profile__edit-button" name="edit-button" type="button" aria-label="Редактировать профиль"></button>
                     </div>
-                    <h2 class="profile__subtitle">Исследователь океана</h2>
+                    <p class="profile__subtitle">Исследователь океана</p>
                 </div>
             </div>
-            <button class="profile__add-button" name="add-button" aria-label="Добавить фото"></button>
+            <button class="profile__add-button" name="add-button" type="button" aria-label="Добавить фото"></button>
         </section>
 
-        <section class="elements">
-            <div class="elements__restangle">
+        <ul class="elements">
+            <li class="elements__restangle">
                 <img class="elements__image" alt="фото Карачаевск" src="./images/крачаевск.png"/>
                 <p class="elements__title">Карачаевск</p>
-                <button class="elements__like" aria-label="Поставить Лайк"></button>
-            </div>
-            <div class="elements__restangle">
+                <button class="elements__like" type="button" aria-label="Поставить Лайк"></button>
+            </li>
+            <li class="elements__restangle">
               <img class="elements__image" alt="фото гора Эльбрус" src="./images/гораэльбрус.png"/>
               <p class="elements__title">гора Эльбрус</p>
-              <button class="elements__like" aria-label="Поставить Лайк"></button>
-            </div>           
-            <div class="elements__restangle">
+              <button class="elements__like" type="button" aria-label="Поставить Лайк"></button>
+            </li>           
+            <li class="elements__restangle">
               <img class="elements__image" alt="фото Домбай" src="./images/донбай.png"/>
               <p class="elements__title">Домбай</p>
-              <button class="elements__like" aria-label="Поставить Лайк"></button>
-            </div>
-            <div class="elements__restangle">
+              <button class="elements__like" type="button" aria-label="Поставить Лайк"></button>
+            </li>
+            <li class="elements__restangle">
                 <img class="elements__image" alt="фото Кемерово" src="./images/кемерово1.jpg"/>
                 <p class="elements__title">Кемерово</p>
-                <button class="elements__like" aria-label="Поставить Лайк"></button>
-            </div>
-            <div class="elements__restangle">
+                <button class="elements__like" type="button" aria-label="Поставить Лайк"></button>
+            </li>
+            <li class="elements__restangle">
                 <img class="elements__image" alt="фото п.Лесная поляна" src="./images/кемерово2.jpg"/>
                 <p class="elements__title">пос. Лесная поляна</p>
-                <button class="elements__like" aria-label="Поставить Лайк"></button>
-            </div>
-            <div class="elements__restangle">
+                <button class="elements__like" type="button" aria-label="Поставить Лайк"></button>
+            </li>
+            <li class="elements__restangle">
                 <img class="elements__image" alt="фото Сосновый бор" src="./images/кемерово3.jpg"/>
                 <p class="elements__title">Сосновый бор</p>
-                <button class="elements__like" aria-label="Поставить Лайк"></button>
-            </div>            
-        </section>
-        <div class="popup">
-          <button class="popup__close-button" aria-label="Закрыть окно"></button>
-          <form class="popup__container">
+                <button class="elements__like" type="button" aria-label="Поставить Лайк"></button>
+            </li>            
+          </ul>
+       </main>
+       <div class="popup">
+          <form class="popup__container" name="forma">
+            <button class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input class="popup__input popup__input_name_username" name="1" type="text" value>
-            <hr class="popup__line"> 
-            <input class="popup__input popup__input_name_userjob" name="2" type="text" value>
-            <hr class="popup__line">
+            <input class="popup__input popup__input_name_username" name="field1" type="text" value>
+            <input class="popup__input popup__input_name_userjob" name="field2" type="text" value>
             <button class="popup__submit-button" type="submit">Сохранить</button>
           </form>
-        </div>
-       </main>
+       </div>
        <footer class="footer">
         <p class="footer__copyright">&COPY; 2022 Mesto Russia</p>
       </footer>

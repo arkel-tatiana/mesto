@@ -5,10 +5,11 @@
   grid-area: logo;
   border: none;
   background: none;
-  background-image: url(../../../images/сердечко2.png);
+  background-image: url(../../../images/сердечко.svg);
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  transition: opacity 0.5s ease-in-out;
 }
 .elements__like:hover{
   opacity: 0.5;

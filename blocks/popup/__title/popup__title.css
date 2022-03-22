@@ -1,11 +1,11 @@
 .popup__title{
   width: 76.74%;
   max-width: 330px;
-  margin: 34px 0 54px 0;
+  margin: 35px 64px 54px 36px;
   font-weight: 900;
   font-size: 24px;
   line-height: 23px;
-  text-align: center;  
+  text-align: start;  
 }
 @media (max-width: 1200px){
   .popup__title{
@@ -24,7 +24,6 @@
     width: 84.4%;
     max-width: 238px;
     margin: 25px auto 75px auto;
-    font-size: 18px;
     line-height: 22px;
   }
 }

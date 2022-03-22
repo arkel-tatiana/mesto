@@ -2,10 +2,12 @@
   width: 142px;
   height: 33px;
   background-size: 142px 33px;
-  background-image: url(../../../images/логотип.png);
+  background-image: url(../../../images/logo.svg);
+  transition: opacity 0.5s ease-in-out;
 }
 .header__logo:hover{
-  background-image: url(../../../images/логотип1.png);
+  opacity: 0;
+  
 }
 @media (max-width: 400px){
   .header__logo {

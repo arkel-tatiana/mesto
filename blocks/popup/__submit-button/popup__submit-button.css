@@ -14,7 +14,7 @@
     margin: 48px 0 37px 0;
     padding: 0;
   }
-  .popup__submit-button.popup__close-button:hover{
+  .popup__submit-button:hover{
     opacity: 0.8;
   }
   @media (max-width: 500px){

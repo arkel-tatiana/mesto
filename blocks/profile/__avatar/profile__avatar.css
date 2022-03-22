@@ -10,10 +10,14 @@
 @media (max-width: 800px){
   .profile__avatar{
     margin-right: 10px;
+    width: 100px;
+    height: 107.5px;
   }
 }
 @media (max-width: 500px){
   .profile__avatar{
+    width: 120px;
+    height: 127.5px;
     margin: 0 auto 20px auto;
   }
 }

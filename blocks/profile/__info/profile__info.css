@@ -1,7 +1,7 @@
 .profile__info{
     margin: 22px 0 25px 4px;
     padding: 0;
-    width: 336px;
+    width: 75%;
   }
 @media (max-width: 500px){
   .profile__info{
