@@ -29,53 +29,40 @@
 
         <section class="cards">
           <ul class="cards__container">
-            <li class="cards__item">
-                <img class="cards__image" alt="фото Карачаевск" src="./images/крачаевск.png"/>
-                <p class="cards__title">Карачаевск</p>
-                <button class="cards__like" type="button" aria-label="Поставить Лайк"></button>
-            </li>
-            <li class="cards__item">
-              <img class="cards__image" alt="фото гора Эльбрус" src="./images/гораэльбрус.png"/>
-              <p class="cards__title">гора Эльбрус</p>
-              <button class="cards__like" type="button" aria-label="Поставить Лайк"></button>
-            </li>           
-            <li class="cards__item">
-              <img class="cards__image" alt="фото Домбай" src="./images/донбай.png"/>
-              <p class="cards__title">Домбай</p>
-              <button class="cards__like" type="button" aria-label="Поставить Лайк"></button>
-            </li>
-            <li class="cards__item">
-                <img class="cards__image" alt="фото Кемерово" src="./images/кемерово1.jpg"/>
-                <p class="cards__title">Кемерово</p>
-                <button class="cards__like" type="button" aria-label="Поставить Лайк"></button>
-            </li>
-            <li class="cards__item">
-                <img class="cards__image" alt="фото п.Лесная поляна" src="./images/кемерово2.jpg"/>
-                <p class="cards__title">пос. Лесная поляна</p>
-                <button class="cards__like" type="button" aria-label="Поставить Лайк"></button>
-            </li>
-            <li class="cards__item">
-                <img class="cards__image" alt="фото Сосновый бор" src="./images/кемерово3.jpg"/>
-                <p class="cards__title">Сосновый бор</p>
-                <button class="cards__like" type="button" aria-label="Поставить Лайк"></button>
-            </li>            
+ 
           </ul>
         </section>
         
-       </main>
-       <div class="popup">
-          <form class="popup__container" name="forma">
+        </main>
+        <div class="popup">
+          <div class="popup__container">
+            <img class="popup__image" alt="фото полноэкранного просмотра" src="#"/>
+            <p class="popup__image-title"></p>
             <button class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <input class="popup__input popup__input_name_username" name="field1" type="text" value>
-            <input class="popup__input popup__input_name_userjob" name="field2" type="text" value>
-            <button class="popup__submit-button" type="submit">Сохранить</button>
-          </form>
-       </div>
-       <footer class="footer">
-        <p class="footer__copyright">&COPY; 2022 Mesto Russia</p>
-      </footer>
+            <form class="popup__forma" name="forma">
+              <h2 class="popup__title">Редактировать профиль</h2>
+              <input class="popup__input popup__input_name_username" name="field1" type="text" value>
+              <input class="popup__input popup__input_name_userjob" name="field2" type="text" value>
+              <button class="popup__submit-button" type="submit">Сохранить</button>
+            </form>
+          </div>
+        </div>
+        <footer class="footer">
+          <p class="footer__copyright">&COPY; 2022 Mesto Russia</p>
+        </footer>
     </div>
+
+    <template id="cards-template">
+      <li class="cards__item">
+        <div class="cards__images">
+          <img class="cards__image" alt="загружаемое фото" src="#"/>
+          <button class="cards__delete" type="button" aria-label="Удалить фото"></button>
+        </div>
+        <p class="cards__title"></p>
+        <button class="cards__like" type="button" aria-label="Поставить Лайк"></button>
+      </li>
+    </template>
+  
     <script src="./scripts/index.js"></script>
   </body>
 </html>

@@ -4,8 +4,8 @@
   max-width: 100%;
   min-height: 100%;
   display: grid;
-  grid-template-columns: 1fr 52px;
-  grid-template-rows: minmax(min-content, max-content) 54px;
+  grid-template-columns: 230px 52px;
+  grid-template-rows: 282px 55px;
   grid-template-areas:
     "image image"
     "title logo";
