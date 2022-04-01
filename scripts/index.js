@@ -10,11 +10,11 @@ const cardslinkInput = cardsPopup.querySelector('.popup__input_name_linkcards');
 const buttonCloseCards = cardsPopup.querySelector('.popup__close-button');
 const buttonOpen = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
-let title = document.querySelector('.profile__title');
-let subtitle = document.querySelector('.profile__subtitle');
+const title = document.querySelector('.profile__title');
+const subtitle = document.querySelector('.profile__subtitle');
 const imagePopup = document.querySelector('.popup_images');
-let popupimagetitle = imagePopup.querySelector('.popup__image-title');
-let popupimage = imagePopup.querySelector('.popup__image');
+const popupimagetitle = imagePopup.querySelector('.popup__image-title');
+const popupimage = imagePopup.querySelector('.popup__image');
 const buttonCloseImage = imagePopup.querySelector('.popup__close-button');
 const cardsContainer = document.querySelector('.cards__container');
 const cardsTemplate = document.querySelector('#cards-template').content;
@@ -74,7 +74,7 @@ function closePopup(popup) {
 }
 
 function addImage(names, links){
-  let cardsResult = createImage(names, links);
+  const cardsResult = createImage(names, links);
   cardsContainer.prepend(cardsResult);
 }
 function createImage (cardsInputvalue, linkInputvalue){
@@ -82,10 +82,8 @@ function createImage (cardsInputvalue, linkInputvalue){
   const cardsElement = cardsTemplate.querySelector('.cards__item').cloneNode(true);
   cardsElement.querySelector('.cards__title').textContent = cardsInputvalue;
   cardsElement.querySelector('.cards__image').src = linkInputvalue;
-  cardsElement.querySelector('.cards__image').addEventListener('click', function (evt) {
-    let imagesrc = evt.target.getAttribute('src');
-    let imagetitle = cardsElement.querySelector('.cards__title').textContent;
-    imageCards(imagesrc,imagetitle );
+  cardsElement.querySelector('.cards__image').addEventListener('click', function () {
+    handleLikeimage (linkInputvalue, cardsInputvalue);
   })  
   cardsElement.querySelector('.cards__like').addEventListener('click', function (evt) {
     evt.target.classList.toggle('cards__like_active');
@@ -97,7 +95,7 @@ function deleteCard (evt) {
   let cardsItem = evt.target.closest('.cards__item');
   cardsItem.remove();
 };
-function imageCards (linkImage, nameImage) {
+function handleLikeimage (linkImage, nameImage) {
   popupimage.setAttribute('src', linkImage);
   popupimage.setAttribute('alt', "фото " + nameImage);
   popupimagetitle.textContent = nameImage;
