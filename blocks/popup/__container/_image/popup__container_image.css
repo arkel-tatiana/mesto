@@ -1,11 +1,7 @@
 .popup__container_image{
   max-height: 75vh;
   max-width: 75vw;
-  margin: 90px 0 0 0;
+  margin: 0;
   width: auto;
 }
-@media (max-width: 320px){
-  .popup__container_image{
-    margin: 136px;
-  }
-}
+
