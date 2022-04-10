@@ -62,7 +62,7 @@ buttonOpen.addEventListener('click', function() {
 });
 buttonAdd.addEventListener('click', function() {
   popupName = cardsPopup;
-  statusSubmitButton(popupName)
+  statusSubmitButton(popupName);
   openPopup(popupName);
 });
 
@@ -85,24 +85,24 @@ function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keyup', onDocumentKeyup);
   popup.addEventListener('click', onPopupClick);
-}
+};
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keyup', onDocumentKeyup);
   popup.removeEventListener('click', onPopupClick);
-}
+};
 
 function onDocumentKeyup(event){
 //  document.querySelector('.popup_opened');
   if (event.key === "Escape"){
     closePopup(popupName);
-  }
-}
+  };
+};
 function onPopupClick(evt){
   if (evt.target.classList.contains('popup')) {
     closePopup(popupName);
-  }
-}
+  };
+};
 
 function addImage(names, links){
   const cardsResult = createImage(names, links);
@@ -115,7 +115,7 @@ function createImage (cardsInputvalue, linkInputvalue){
   cardsElement.querySelector('.cards__image').src = linkInputvalue;
   cardsElement.querySelector('.cards__image').addEventListener('click', function () {
     handleLikeimage (linkInputvalue, cardsInputvalue);
-  })  
+  });  
   cardsElement.querySelector('.cards__like').addEventListener('click', function (evt) {
     evt.target.classList.toggle('cards__like_active');
   });

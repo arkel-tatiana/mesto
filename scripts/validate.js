@@ -5,7 +5,7 @@ const Validation = {
     activeButtonClass: 'popup__submit-button_active'};
 function enableValidation() { 
     const formList = Array.from(document.querySelectorAll(Validation.formSelector));
-    console.log(formList)
+ //   console.log(formList);
     formList.forEach((formElement) => {
       setEventListeners(formElement);  
     });
@@ -30,13 +30,13 @@ const checkInputValidity = (formElement, inputElement) => {
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
     hideInputError(formElement, inputElement);
-  }
+  };
 };
   
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
-  })
+  });
 }; 
   
 const setButtonStatys = (inputList, buttonElement) => {
@@ -44,7 +44,7 @@ const setButtonStatys = (inputList, buttonElement) => {
     disableButton(buttonElement);
   } else {
     enableButton(buttonElement);
-  }
+  };
 }; 
 const enableButton = (buttonElement) => {
   buttonElement.classList.add(Validation.activeButtonClass);
