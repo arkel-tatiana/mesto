@@ -112,6 +112,7 @@ function addImage(names, links){
 function createImage (cardsInputvalue, linkInputvalue){
   const cardsElement = cardsTemplate.querySelector('.cards__item').cloneNode(true);
   cardsElement.querySelector('.cards__title').textContent = cardsInputvalue;
+  cardsElement.querySelector('.cards__image').alt = cardsInputvalue;
   cardsElement.querySelector('.cards__image').src = linkInputvalue;
   cardsElement.querySelector('.cards__image').addEventListener('click', function () {
     handleLikeimage (linkInputvalue, cardsInputvalue);
@@ -136,17 +137,17 @@ function handleLikeimage (linkImage, nameImage) {
   openPopup(popupName);
 };
 
-function formSubmitHandlerADD (evt) {
+function handlerSubmitFormAdd (evt) {
   evt.preventDefault();
   addImage(cardsnameInput.value, cardslinkInput.value);
   closePopup(popupName);
   formElementADD.reset();
 };
-formElementADD.addEventListener('submit', formSubmitHandlerADD);
-function formSubmitHandlerEdit (evt) {
+formElementADD.addEventListener('submit', handlerSubmitFormAdd);
+function handlerSubmitFormEdit (evt) {
   evt.preventDefault();
   title.textContent = nameInput.value;
   subtitle.textContent = jobInput.value;
   closePopup(popupName);
 };
-formElementEdit.addEventListener('submit', formSubmitHandlerEdit);
+formElementEdit.addEventListener('submit', handlerSubmitFormEdit);
