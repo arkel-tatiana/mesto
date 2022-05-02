@@ -1,8 +1,5 @@
-//const settings = {
-//    formSelector: '.popup__forma',
-//    inputSelector: '.popup__input',
- //   submitButtonSelector: '.popup__submit-button',
- //   activeButtonClass: 'popup__submit-button_active'};
+
+
 function enablesettings(settings) { 
     const formList = Array.from(document.querySelectorAll(settings.formSelector));
     formList.forEach((formElement) => {

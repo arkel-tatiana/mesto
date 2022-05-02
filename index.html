@@ -37,7 +37,7 @@
         <div class="popup popup_profile" id="profilePopup">
           <div class="popup__container">
             <button class="popup__close-button" type="button" aria-label="Закрыть окно1"></button>
-            <form class="popup__forma" name="forma" novalidate>
+            <form class="popup__forma popup__forma_profile" name="forma" novalidate>
               <h2 class="popup__title">Редактировать профиль</h2>
               <input class="popup__input popup__input_name_username popup__input_type_error" id="username-input" name="username" type="text" value required minlength="2" maxlength="40" placeholder="имя">
               <span class="popup__input-error username-input-error popup__input-error_active"></span>
@@ -50,7 +50,7 @@
         <div class="popup popup_cards" id="cardsPopup">
           <div class="popup__container">
             <button class="popup__close-button" type="button" aria-label="Закрыть окно2"></button>
-            <form class="popup__forma" name="forma" novalidate>
+            <form class="popup__forma popup__forma_cards" name="forma" novalidate>
               <h2 class="popup__title">Новое место</h2>
               <input class="popup__input popup__input_add popup__input_name_namecards popup__input_type_error " id="namecards-input" name="namecards" type="text" value = "Название" required minlength="2" maxlength="30" placeholder="Название">
               <span class="popup__input-error namecards-input-error popup__input-error_active"></span>
@@ -83,8 +83,10 @@
       </li>
     </template>
   
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/validate.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
+  <!-- <script type="module" src="./scripts/utils.js"></script>
+   <script type="module" src="./scripts/Card.js"></script>
+   <script src="./scripts/validate.js"></script>-->
   </body>
 </html>
 <!---->
