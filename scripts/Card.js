@@ -1,5 +1,8 @@
-import {closePopup, openPopup, initialCards} from './utils.js';
-import {buttonCloseImage} from './index.js';
+import {closePopup, openPopup, onDocumentKeyup, onPopupClick} from './utils.js';
+const imagePopup = document.querySelector('.popup_images');
+const buttonCloseImage = imagePopup.querySelector('.popup__close-button');
+const popupimagetitle = imagePopup.querySelector('.popup__image-title');
+const popupimage = imagePopup.querySelector('.popup__image');
 export class Card {
     constructor(data, cardSelector) {
       this._name = data.name;
@@ -18,6 +21,7 @@ export class Card {
       this._element = this._getTemplate();
       this._setEventListeners();
       this._element.querySelector('.cards__image').src = this._link;
+      this._element.querySelector('.cards__image').alt = "фото " + this._name;
       this._element.querySelector('.cards__title').textContent = this._name;
       return this._element;
     }
@@ -48,7 +52,6 @@ export class Card {
       popupimage.src = this._link;
       popupimage.alt = "фото " + this._name;
       popupimagetitle.textContent = this._name;
-      popupName = imagePopup;
       openPopup(imagePopup);
     };
   };

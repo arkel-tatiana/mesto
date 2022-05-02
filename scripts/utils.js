@@ -1,3 +1,4 @@
+import {popupName} from './index.js';
 export const initialCards = [
     {
       name: 'Архыз',
@@ -24,7 +25,6 @@ export const initialCards = [
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
   ];
-import {onDocumentKeyup, onPopupClick} from './index.js';
 export function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keyup', onDocumentKeyup);
@@ -35,6 +35,17 @@ export function closePopup(popup) {
     document.removeEventListener('keyup', onDocumentKeyup);
     popup.removeEventListener('click', onPopupClick);
   };
+export function onDocumentKeyup(event){
+  //  document.querySelector('.popup_opened');
+  if (event.key === "Escape"){
+    closePopup(popupName);
+  };
+};
+export function onPopupClick(evt){
+  if (evt.target.classList.contains('popup')) {
+    closePopup(popupName);
+  };
+};  
 export const settings = {
   formSelector: '.popup__forma',
   inputSelector: '.popup__input',

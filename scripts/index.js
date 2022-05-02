@@ -12,19 +12,15 @@ const buttonOpen = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
 const title = document.querySelector('.profile__title');
 const subtitle = document.querySelector('.profile__subtitle');
-const imagePopup = document.querySelector('.popup_images');
-const popupimagetitle = imagePopup.querySelector('.popup__image-title');
-const popupimage = imagePopup.querySelector('.popup__image');
-export const buttonCloseImage = imagePopup.querySelector('.popup__close-button');
 const cardsContainer = document.querySelector('.cards__container');
-export let popupName = ""
+export let popupName = imagePopup;
 //const cardsTemplate = document.querySelector('#cards-template').content;
 //const formSelector = document.querySelector('.popup__forma');
 //const inputSelector = formSelector.querySelector('.popup__input');
 //const inputErrorClass = formSelector.querySelector(`.${inputSelector.id}-error`);
 //const submitButtonSelector = formSelector.querySelector('.popup__submit-button');
 //console.log(formSelector)
-import {closePopup, openPopup, initialCards} from './utils.js';
+import {closePopup, openPopup, onDocumentKeyup, onPopupClick, initialCards} from './utils.js';
 import {Card} from './Card.js';
 import {FormValidator} from './FormValidator.js';
 import {settings} from './utils.js';
@@ -37,18 +33,6 @@ const renderElements = (items) => {
   });
 };
 renderElements(initialCards);
-//initialCards.forEach((item) => {
-//  const card = new Card(item, '#cards-template');
-//  const cardElement = card.generateCard();
-//  document.querySelector('.cards__container').append(cardElement);
-//});
-
-
-
-
-
-
-
 
 buttonOpen.addEventListener('click', function() {
   nameInput.value = title.textContent;
@@ -94,17 +78,7 @@ buttonCloseCards.addEventListener('click', function() {
   closePopup(cardsPopup);
 });
 
-export function onDocumentKeyup(event){
-//  document.querySelector('.popup_opened');
-  if (event.key === "Escape"){
-    closePopup(popupName);
-  };
-};
-export function onPopupClick(evt){
-  if (evt.target.classList.contains('popup')) {
-    closePopup(popupName);
-  };
-};
+
 
 function handlerSubmitFormAdd (evt) {
   evt.preventDefault();
