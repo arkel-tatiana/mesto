@@ -1,3 +1,6 @@
+// большое спасибо за классное ревью. незнаю куда написать поэтому решила ЗДЕСЬ.
+// эт пожалуй лучшее ревью из того что я получала. сразу понятно что Вам не все равно,
+// а ВЫ пытаетесь чему то научить. Еще раз большой респект за крутое ревью.
 const profilePopup = document.querySelector('.popup_profile');
 export const formElementEdit = profilePopup.querySelector('.popup__forma');
 const nameInput = profilePopup.querySelector('.popup__input_name_username');
@@ -12,82 +15,66 @@ const buttonOpen = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
 const title = document.querySelector('.profile__title');
 const subtitle = document.querySelector('.profile__subtitle');
-const cardsContainer = document.querySelector('.cards__container');
-export let popupName = imagePopup;
-//const cardsTemplate = document.querySelector('#cards-template').content;
-//const formSelector = document.querySelector('.popup__forma');
-//const inputSelector = formSelector.querySelector('.popup__input');
-//const inputErrorClass = formSelector.querySelector(`.${inputSelector.id}-error`);
-//const submitButtonSelector = formSelector.querySelector('.popup__submit-button');
-//console.log(formSelector)
-import {closePopup, openPopup, onDocumentKeyup, onPopupClick, initialCards} from './utils.js';
+const imagePopup = document.querySelector('.popup_images');
+const buttonCloseImage = imagePopup.querySelector('.popup__close-button');
+const popupimagetitle = imagePopup.querySelector('.popup__image-title');
+const popupimage = imagePopup.querySelector('.popup__image');
+const popups = document.querySelectorAll('.popup')
+
+import {closePopup, openPopup, initialCards} from './utils.js';
 import {Card} from './Card.js';
-import {FormValidator} from './FormValidator.js';
-import {settings} from './utils.js';
-const renderElements = (items) => {
-  console.log(items);
-  items.forEach((item) => {
-  const card = new Card(item, '#cards-template');
-  const cardElement = card.generateCard();
-  document.querySelector('.cards__container').prepend(cardElement);
-  });
+import {FormValidator, formValidators} from './FormValidator.js';
+function createCard(item) {
+  const card = new Card(item, '#cards-template', handleCardClick);
+  const cards = card.generateCard();
+  return cards;
 };
+function renderElements(items){
+  items.forEach((item) => {
+    const cardsElement = createCard(item)
+    document.querySelector('.cards__container').append(cardsElement);
+  });
+};  
 renderElements(initialCards);
 
 buttonOpen.addEventListener('click', function() {
   nameInput.value = title.textContent;
   jobInput.value = subtitle.textContent;
-  popupName = profilePopup;
-  statusSubmitButton(popupName);
-  resetErrors(popupName);
-  resetInputs(popupName);
-  openPopup(popupName);
+  formValidators['profile'].resetValidation()
+  openPopup(profilePopup);
 });
 buttonAdd.addEventListener('click', function() {
-  popupName = cardsPopup;
-  statusSubmitButton(popupName);
-  resetErrors(popupName);
-  resetInputs(popupName);
-  openPopup(popupName);
+  formElementADD.reset()
+  formValidators['cards'].resetValidation()
+  openPopup(cardsPopup);
+});
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup);
+    };
+    if (evt.target.classList.contains('popup__close-button')) {
+      closePopup(popup);
+    };
+  });
 });
 
-function statusSubmitButton(popupName){
-  popupName.querySelector('.popup__submit-button').disabled = true;
-  popupName.querySelector('.popup__submit-button').classList.remove('popup__submit-button_active');
-}
-
-function resetErrors(popupName){
-  const errorList = Array.from(popupName.querySelectorAll('.popup__input-error_active'));
-  errorList.forEach((error) => {
-    error.textContent = '';
-    error.removeAttribute('style', `display: block`);
-  });
+function handleCardClick (name, link) {
+  popupimage.src = link;
+  popupimage.alt = "фото " + name;
+  popupimagetitle.textContent = name;
+  openPopup(imagePopup);
 };
-
-function resetInputs(popupName){
-  const inputsList = Array.from(popupName.querySelectorAll('.popup__input'));
-  inputsList.forEach((inputs) => {
-    inputs.removeAttribute('style', `border-bottom: 1px solid #FF0000`);
-  });
-}
-
-buttonClose.addEventListener('click', function() {
-  closePopup(profilePopup);
-});
-buttonCloseCards.addEventListener('click', function() {
-  closePopup(cardsPopup);
-});
-
-
 
 function handlerSubmitFormAdd (evt) {
   evt.preventDefault();
-    let dataValue = [{ 
+    const dataValue = { 
       name: cardsnameInput.value,
       link: cardslinkInput.value
-    }];
-  renderElements(dataValue);
-  closePopup(popupName);
+    };
+  const cardsElement = createCard(dataValue);
+  document.querySelector('.cards__container').prepend(cardsElement);
+  closePopup(cardsPopup);
   formElementADD.reset();
 };
 formElementADD.addEventListener('submit', handlerSubmitFormAdd);
@@ -95,8 +82,6 @@ function handlerSubmitFormEdit (evt) {
   evt.preventDefault();
   title.textContent = nameInput.value;
   subtitle.textContent = jobInput.value;
-  closePopup(popupName);
+  closePopup(profilePopup);
 };
 formElementEdit.addEventListener('submit', handlerSubmitFormEdit);
-
-

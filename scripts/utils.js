@@ -1,4 +1,4 @@
-import {popupName} from './index.js';
+//import {popupName} from './index.js';
 export const initialCards = [
     {
       name: 'Архыз',
@@ -25,29 +25,22 @@ export const initialCards = [
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
   ];
+
 export function openPopup(popup) {
     popup.classList.add('popup_opened');
-    document.addEventListener('keyup', onDocumentKeyup);
-    popup.addEventListener('click', onPopupClick);
+    document.addEventListener('keyup', handleEscKey);
+//    popup.addEventListener('click', handlePopupClick);
   };
 export function closePopup(popup) {
     popup.classList.remove('popup_opened');
-    document.removeEventListener('keyup', onDocumentKeyup);
-    popup.removeEventListener('click', onPopupClick);
+    document.removeEventListener('keyup', handleEscKey);
+//    popup.removeEventListener('click', handlePopupClick);
   };
-export function onDocumentKeyup(event){
+function handleEscKey(event){
   //  document.querySelector('.popup_opened');
   if (event.key === "Escape"){
-    closePopup(popupName);
+    closePopup(document.querySelector('.popup_opened'));
   };
 };
-export function onPopupClick(evt){
-  if (evt.target.classList.contains('popup')) {
-    closePopup(popupName);
-  };
-};  
-export const settings = {
-  formSelector: '.popup__forma',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit-button',
-  activeButtonClass: 'popup__submit-button_active'};  
+
+ 
