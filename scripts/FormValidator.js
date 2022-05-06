@@ -1,12 +1,3 @@
-const settings = {
-  formSelector: '.popup__forma',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit-button',
-  activeButtonClass: 'popup__submit-button_active',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_active'
-};
-
 export class FormValidator{
   constructor(dataValidate, formaSelector) {
     this._formSelector = dataValidate.formSelector,
@@ -79,14 +70,4 @@ export class FormValidator{
   };  
 };
 
-export const formValidators = {}
-const startValidation = (config) => {
-  const formList = Array.from(document.querySelectorAll(config.formSelector))
-  formList.forEach((formElement) => {
-    const validator = new FormValidator(config, formElement)
-    const formName = formElement.getAttribute('name')
-    formValidators[formName] = validator;
-    validator.enableValidation();
-  });
-};
-startValidation (settings);
+

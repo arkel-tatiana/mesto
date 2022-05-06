@@ -1,5 +1,3 @@
-//import {closePopup, openPopup, onDocumentKeyup, onPopupClick} from './utils.js';
-
 export class Card {
     constructor(data, cardSelector, handleCardClick) {
       this._name = data.name;
@@ -21,8 +19,6 @@ export class Card {
       this._setEventListeners();
       this._cardImage.src = this._link;
       this._cardImage.alt = "фото " + this._name;;
-      //this._element.querySelector('.cards__image').src = this._link;
-      //this._element.querySelector('.cards__image').alt = "фото " + this._name;
       this._element.querySelector('.cards__title').textContent = this._name;
       return this._element;
     }
@@ -31,15 +27,13 @@ export class Card {
         evt.target.classList.toggle('cards__like_active');
       });
       this._element.querySelector('.cards__delete').addEventListener('click', () => {
-        this._element.remove();
+        this._handleDeleteClick()
       });
       this._cardImage.addEventListener('click', () => {
         this._handleCardClick(this._name, this._link);
       });
     };
     _handleDeleteClick() {
-      //    let cardsItem = evt.target.closest('.cards__item');
-      let cardsItem = this._element.querySelector('.cards__delete').closest('.cards__item');
-      cardsItem.remove();
+      this._element.remove();
     };
 };

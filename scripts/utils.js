@@ -26,6 +26,15 @@ export const initialCards = [
     }
   ];
 
+  export const settings = {
+    formSelector: '.popup__forma',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__submit-button',
+    activeButtonClass: 'popup__submit-button_active',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__input-error_active'
+  };
+
 export function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keyup', handleEscKey);
