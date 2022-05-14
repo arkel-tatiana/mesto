@@ -35,21 +35,21 @@ export const initialCards = [
     errorClass: 'popup__input-error_active'
   };
 
-export function openPopup(popup) {
-    popup.classList.add('popup_opened');
-    document.addEventListener('keyup', handleEscKey);
-//    popup.addEventListener('click', handlePopupClick);
-  };
-export function closePopup(popup) {
-    popup.classList.remove('popup_opened');
-    document.removeEventListener('keyup', handleEscKey);
-//    popup.removeEventListener('click', handlePopupClick);
-  };
-function handleEscKey(event){
-  //  document.querySelector('.popup_opened');
-  if (event.key === "Escape"){
-    closePopup(document.querySelector('.popup_opened'));
-  };
-};
+//export function openPopup(popup) {
+//  popup.classList.add('popup_opened');
+//  document.addEventListener('keyup', handleEscKey);
+////  popup.addEventListener('click', handlePopupClick);
+//};
+//export function closePopup(popup) {
+//  popup.classList.remove('popup_opened');
+//  document.removeEventListener('keyup', handleEscKey);
+////  popup.removeEventListener('click', handlePopupClick);
+//};
+//function handleEscKey(event){
+//  document.querySelector('.popup_opened');
+//  if (event.key === "Escape"){
+//    closePopup(document.querySelector('.popup_opened'));
+//  };
+//};
 
  

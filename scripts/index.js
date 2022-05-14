@@ -8,28 +8,33 @@ const cardsnameInput = cardsPopup.querySelector('.popup__input_name_namecards');
 const cardslinkInput = cardsPopup.querySelector('.popup__input_name_linkcards');
 const buttonOpen = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
-const title = document.querySelector('.profile__title');
-const subtitle = document.querySelector('.profile__subtitle');
 const imagePopup = document.querySelector('.popup_images');
 const popupimagetitle = imagePopup.querySelector('.popup__image-title');
 const popupimage = imagePopup.querySelector('.popup__image');
 const popups = document.querySelectorAll('.popup');
-const cardsContainer = document.querySelector('.cards__container')
 
-import {closePopup, openPopup, initialCards, settings} from './utils.js';
+import {initialCards, settings} from './utils.js';
 import {Card} from './Card.js';
+import {Section} from './Section.js';
 import {FormValidator} from './FormValidator.js';
-function createCard(item) {
-  const card = new Card(item, '#cards-template', handleCardClick);
-  const cardElement = card.generateCard();
-  return cardElement;
-};
-function renderElements(items){
-  items.forEach((item) => {
-    cardsContainer.append(createCard(item));
-  });
+import {UserInfo} from './UserInfo.js';
+//import {Popup} from './Popup.js';
+import {PopupWithForm} from './PopupWithForm.js';
+import {PopupWithImage} from './PopupWithImage.js';
+
+function appendSection(dataCard, place){
+  const section = new Section({
+  data: dataCard,
+  renderer: (item) => {
+    const card = new Card(item, '#cards-template', handleCardClick);
+    const cardElement = card.generateCard();
+    section.addItem(cardElement, place);
+  }
+  }, '.cards__container');
+  console.log(section)
+  section.renderItems();
 };  
-renderElements(initialCards);
+appendSection(initialCards, 'end');
 
 const formValidators = {}
 const startValidation = (config) => {
@@ -43,51 +48,40 @@ const startValidation = (config) => {
 };
 startValidation (settings);
 
+const userInfo = new UserInfo ('.profile__title', '.profile__subtitle');
+const popupWithFormEdit = new PopupWithForm({
+  popupSelector: profilePopup,
+  handlerSubmitForm: (formData) => {
+    const userInfo = new UserInfo ('.profile__title', '.profile__subtitle');
+    userInfo.setUserInfo(formData);
+  }
+});
+const popupWithFormAdd = new PopupWithForm({
+  popupSelector: cardsPopup,
+  handlerSubmitForm: (formData) => {
+    const dataValue = [{ 
+      name: formData.namecards,
+      link: formData.linkcards
+    }];
+    console.log(dataValue);
+    appendSection(dataValue, 'start')
+  }
+});
+
 buttonOpen.addEventListener('click', function() {
-  nameInput.value = title.textContent;
-  jobInput.value = subtitle.textContent;
+  userInfo.getUserInfo();
   formValidators['profile'].resetValidation()
-  openPopup(profilePopup);
+  popupWithFormEdit.openPopup();
+  popupWithFormEdit.setEventListeners();
 });
 buttonAdd.addEventListener('click', function() {
-  formElementADD.reset()
   formValidators['cards'].resetValidation()
-  openPopup(cardsPopup);
-});
-popups.forEach((popup) => {
-  popup.addEventListener('mousedown', (evt) => {
-    if (evt.target.classList.contains('popup_opened')) {
-      closePopup(popup);
-    };
-    if (evt.target.classList.contains('popup__close-button')) {
-      closePopup(popup);
-    };
-  });
+  popupWithFormAdd.openPopup();
+  popupWithFormAdd.setEventListeners();
 });
 
 function handleCardClick (name, link) {
-  popupimage.src = link;
-  popupimage.alt = "фото " + name;
-  popupimagetitle.textContent = name;
-  openPopup(imagePopup);
+  const popupWithImage = new PopupWithImage (imagePopup, name, link);
+  popupWithImage.openPopup();
 };
 
-function handlerSubmitFormAdd (evt) {
-  evt.preventDefault();
-    const dataValue = { 
-      name: cardsnameInput.value,
-      link: cardslinkInput.value
-    };
-  const cardsElement = createCard(dataValue);
-  cardsContainer.prepend(cardsElement);
-  closePopup(cardsPopup);
-  formElementADD.reset();
-};
-formElementADD.addEventListener('submit', handlerSubmitFormAdd);
-function handlerSubmitFormEdit (evt) {
-  evt.preventDefault();
-  title.textContent = nameInput.value;
-  subtitle.textContent = jobInput.value;
-  closePopup(profilePopup);
-};
-formElementEdit.addEventListener('submit', handlerSubmitFormEdit);
