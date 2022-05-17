@@ -6,7 +6,7 @@ export class Popup {
   }
   openPopup(){
     this._popupSelector.classList.add('popup_opened');
-  //  this._setEventListeners();
+    document.addEventListener('keyup', this._handleEscKey);
   };
   closePopup(){
     this._popupSelector.classList.remove('popup_opened');
@@ -18,7 +18,6 @@ export class Popup {
     };
   };
   setEventListeners(){
-    document.addEventListener('keyup', this._handleEscKey);
     this._popupSelector.addEventListener('mousedown', this._handleClickPopup);
   };  
   _handleClickPopup(evt) {
