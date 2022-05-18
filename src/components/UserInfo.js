@@ -1,17 +1,16 @@
-const profilePopup = document.querySelector('.popup_profile');
-const nameInput = profilePopup.querySelector('.popup__input_name_username');
-const jobInput = profilePopup.querySelector('.popup__input_name_userjob');
 export class UserInfo{
-  constructor(nameSelector, jobSelector) {
-    this._nameSelector = nameSelector;
-    this._jobSelector = jobSelector;
+  constructor({nameSelector, jobSelector}) {
+    this._nameSelector = document.querySelector(nameSelector);
+    this._jobSelector = document.querySelector(jobSelector);
   };
   getUserInfo(){
-    nameInput.value = document.querySelector(this._nameSelector).textContent;
-    jobInput.value = document.querySelector(this._jobSelector).textContent;
+    const dataTitle = {};
+    dataTitle.username = this._nameSelector.textContent;
+    dataTitle.userjob = this._jobSelector.textContent;
+    return dataTitle;
   };
   setUserInfo(formData){
-    document.querySelector(this._nameSelector).textContent = formData.username;
-    document.querySelector(this._jobSelector).textContent = formData.userjob;
+    this._nameSelector.textContent = formData.username;
+    this._jobSelector.textContent = formData.userjob;
   };
 }
