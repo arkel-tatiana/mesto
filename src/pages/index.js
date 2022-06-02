@@ -141,11 +141,10 @@ api.getUserData()
   };  
   })
   .then ((res) => {
-    dataServer = { 
+    userInfo.setUserInfo({ 
       username: res.name,
       userjob: res.about
-    };
-    userInfo.setUserInfo(dataServer);
+    });
     getIdUser(res._id);
     document.querySelector('.profile__avatar').src = res.avatar;
   })
