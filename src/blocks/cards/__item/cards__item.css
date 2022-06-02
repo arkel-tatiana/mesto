@@ -8,8 +8,8 @@
   grid-template-rows: 282px 55px;
   grid-template-areas:
     "image image"
-    "title logo";
-  row-gap: 25px;
+    "title likes";
+  row-gap: 22px;
   margin: 0;
   padding: 0;
   list-style-type: none;

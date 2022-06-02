@@ -1,21 +1,7 @@
 .cards__like{
-  margin: 5px 30px 0 0;
-  width: 22px;
-  height: 19px;
-  grid-area: logo;
-  border: none;
-  background: none;
-  background-image: url(../../../images/like.svg);
-  cursor: pointer;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  transition: opacity 0.5s ease-in-out;
-}
-.cards__like:hover{
-  opacity: 0.5;
-}
-@media (max-width: 500px){
-  .cards__like{
-    margin: 5px 0 0 10px;
-  }
+  margin: 0 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-area: likes;
 }
