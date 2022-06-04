@@ -5,16 +5,15 @@ export class PopupSubmitDelete extends Popup{
     this._handlerSubmitForm = handlerSubmitForm;
     this._formElement = this._popupSelector.querySelector('.popup__forma');
   };
-  openPopup = (deleteElement, deleteIdElement) => {
-    this._idElement = deleteIdElement;
-    this._deleteElement = deleteElement
+  openPopup = (cardThis) => {
+    this._cardThis = cardThis;
     super.openPopup();
   };  
   setEventListeners() {
     super.setEventListeners();
     this._formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      this._handlerSubmitForm(this._deleteElement, this._idElement);
+      this._handlerSubmitForm(this._cardThis);
     });
   }
   closePopup() {
